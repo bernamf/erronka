@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2024 a las 14:07:53
+-- Tiempo de generación: 13-03-2024 a las 13:26:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,9 +43,7 @@ CREATE TABLE `caballero` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(100) DEFAULT NULL,
   `Arma_ID` int(11) DEFAULT NULL,
-  `Escudo_ID` int(11) DEFAULT NULL,
-  `Escudero_ID` int(11) DEFAULT NULL,
-  `idCaballo` int(11) NOT NULL
+  `Escudo_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -58,7 +56,8 @@ CREATE TABLE `caballo` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(100) DEFAULT NULL,
   `VelocidadMaxima` int(11) DEFAULT NULL,
-  `Resistencia` int(11) DEFAULT NULL
+  `Resistencia` int(11) DEFAULT NULL,
+  `idCaballero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -70,7 +69,8 @@ CREATE TABLE `caballo` (
 CREATE TABLE `escudero` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(100) DEFAULT NULL,
-  `Experiencia` int(11) DEFAULT NULL
+  `Experiencia` int(11) DEFAULT NULL,
+  `idCaballero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -101,21 +101,21 @@ ALTER TABLE `arma`
 ALTER TABLE `caballero`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `FK_Caballero_Arma` (`Arma_ID`),
-  ADD KEY `FK_Caballero_Escudo` (`Escudo_ID`),
-  ADD KEY `FK_Caballero_Escudero` (`Escudero_ID`),
-  ADD KEY `FK_Caballero_Caballo` (`idCaballo`);
+  ADD KEY `FK_Caballero_Escudo` (`Escudo_ID`);
 
 --
 -- Indices de la tabla `caballo`
 --
 ALTER TABLE `caballo`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `idCaballero` (`idCaballero`);
 
 --
 -- Indices de la tabla `escudero`
 --
 ALTER TABLE `escudero`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `idCaballero` (`idCaballero`);
 
 --
 -- Indices de la tabla `escudo`
@@ -132,9 +132,19 @@ ALTER TABLE `escudo`
 --
 ALTER TABLE `caballero`
   ADD CONSTRAINT `FK_Caballero_Arma` FOREIGN KEY (`Arma_ID`) REFERENCES `arma` (`ID`),
-  ADD CONSTRAINT `FK_Caballero_Caballo` FOREIGN KEY (`idCaballo`) REFERENCES `caballo` (`ID`),
-  ADD CONSTRAINT `FK_Caballero_Escudero` FOREIGN KEY (`Escudero_ID`) REFERENCES `escudero` (`ID`),
   ADD CONSTRAINT `FK_Caballero_Escudo` FOREIGN KEY (`Escudo_ID`) REFERENCES `escudo` (`ID`);
+
+--
+-- Filtros para la tabla `caballo`
+--
+ALTER TABLE `caballo`
+  ADD CONSTRAINT `caballo_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`);
+
+--
+-- Filtros para la tabla `escudero`
+--
+ALTER TABLE `escudero`
+  ADD CONSTRAINT `escudero_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
