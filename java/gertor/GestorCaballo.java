@@ -1,4 +1,4 @@
-package gestores;
+package gertor;
 
 public class GestorCaballo {
 
