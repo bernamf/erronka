@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import clases.Caballero;
+import gestores.GestorBBDD;
 import gestores.GestorCaballero;
 import menu.Menu;
 import menu.Visor;
