@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-03-2024 a las 13:26:01
+-- Tiempo de generación: 14-03-2024 a las 09:40:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -138,13 +138,13 @@ ALTER TABLE `caballero`
 -- Filtros para la tabla `caballo`
 --
 ALTER TABLE `caballo`
-  ADD CONSTRAINT `caballo_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`);
+  ADD CONSTRAINT `caballo_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `escudero`
 --
 ALTER TABLE `escudero`
-  ADD CONSTRAINT `escudero_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`);
+  ADD CONSTRAINT `escudero_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
