@@ -22,7 +22,7 @@ public class GestorCaballeros {
 			case Menu.LUCHAR:
 				
 				break;
-			case Menu.VER_CABALLEROS:
+			case Menu.VER_ARMAS:
 				
 				break;
 			case Menu.HISTORIA:
