@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2024 a las 10:51:48
+-- Tiempo de generación: 14-03-2024 a las 11:50:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,18 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `arma`
---
-
-CREATE TABLE `arma` (
-  `ID` int(11) NOT NULL,
-  `Nombre` varchar(100) DEFAULT NULL,
-  `Ataque` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `caballero`
 --
 
@@ -50,54 +38,23 @@ CREATE TABLE `caballero` (
   `Inteligencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `caballo`
+-- Volcado de datos para la tabla `caballero`
 --
 
-CREATE TABLE `caballo` (
-  `ID` int(11) NOT NULL,
-  `Nombre` varchar(100) DEFAULT NULL,
-  `VelocidadMaxima` int(11) DEFAULT NULL,
-  `Resistencia` int(11) DEFAULT NULL,
-  `idCaballero` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `escudero`
---
-
-CREATE TABLE `escudero` (
-  `ID` int(11) NOT NULL,
-  `Nombre` varchar(100) DEFAULT NULL,
-  `Experiencia` int(11) DEFAULT NULL,
-  `idCaballero` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `escudo`
---
-
-CREATE TABLE `escudo` (
-  `ID` int(11) NOT NULL,
-  `Nombre` varchar(100) DEFAULT NULL,
-  `Defensa` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `caballero` (`ID`, `Nombre`, `Arma_ID`, `Escudo_ID`, `Experiencia`, `Fuerza`, `Agilidad`, `Inteligencia`) VALUES
+(1, 'black prior', 2, 7, 5, 6, 7, 5),
+(2, 'topuria', 4, 8, 15, 8, 9, 6),
+(3, 'shugoki', 7, 1, 10, 4, 5, 2),
+(4, 'nobushi', 3, 5, 3, 1, 9, 5),
+(5, 'afeera', 1, 6, 18, 6, 2, 2),
+(6, 'orochi', 5, 3, 7, 3, 6, 7),
+(7, 'warmonger', 6, 2, 7, 9, 3, 1),
+(8, 'conqueror', 8, 4, 20, 10, 10, 10);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `arma`
---
-ALTER TABLE `arma`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indices de la tabla `caballero`
@@ -108,58 +65,14 @@ ALTER TABLE `caballero`
   ADD KEY `FK_Caballero_Escudo` (`Escudo_ID`);
 
 --
--- Indices de la tabla `caballo`
---
-ALTER TABLE `caballo`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `idCaballero` (`idCaballero`);
-
---
--- Indices de la tabla `escudero`
---
-ALTER TABLE `escudero`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `idCaballero` (`idCaballero`);
-
---
--- Indices de la tabla `escudo`
---
-ALTER TABLE `escudo`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `arma`
---
-ALTER TABLE `arma`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `caballero`
 --
 ALTER TABLE `caballero`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `caballo`
---
-ALTER TABLE `caballo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `escudero`
---
-ALTER TABLE `escudero`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `escudo`
---
-ALTER TABLE `escudo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -171,18 +84,6 @@ ALTER TABLE `escudo`
 ALTER TABLE `caballero`
   ADD CONSTRAINT `FK_Caballero_Arma` FOREIGN KEY (`Arma_ID`) REFERENCES `arma` (`ID`),
   ADD CONSTRAINT `FK_Caballero_Escudo` FOREIGN KEY (`Escudo_ID`) REFERENCES `escudo` (`ID`);
-
---
--- Filtros para la tabla `caballo`
---
-ALTER TABLE `caballo`
-  ADD CONSTRAINT `caballo_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `escudero`
---
-ALTER TABLE `escudero`
-  ADD CONSTRAINT `escudero_ibfk_1` FOREIGN KEY (`idCaballero`) REFERENCES `caballero` (`ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
