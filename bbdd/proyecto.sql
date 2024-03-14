@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2024 a las 09:40:16
+-- Tiempo de generación: 14-03-2024 a las 10:00:41
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,7 +43,11 @@ CREATE TABLE `caballero` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(100) DEFAULT NULL,
   `Arma_ID` int(11) DEFAULT NULL,
-  `Escudo_ID` int(11) DEFAULT NULL
+  `Escudo_ID` int(11) DEFAULT NULL,
+  `Experiencia` int(11) NOT NULL,
+  `Fuerza` int(11) NOT NULL,
+  `Agilidad` int(11) NOT NULL,
+  `Inteligencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
