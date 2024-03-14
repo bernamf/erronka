@@ -100,7 +100,7 @@ public class Caballero {
 		}
 
 		public Caballero(int id, String nombre, int experiencia, int fuerza, int inteligencia, int agilidad, Arma arma,
-				Escudo escudo, Escudero escudero, Caballo caballo) {
+				Escudo escudo) {
 			super();
 			this.id = id;
 			this.nombre = nombre;
@@ -110,8 +110,7 @@ public class Caballero {
 			this.agilidad = agilidad;
 			this.arma = arma;
 			this.escudo = escudo;
-			this.escudero = escudero;
-			this.caballo = caballo;
+			
 		}
 
 		@Override
