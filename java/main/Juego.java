@@ -56,6 +56,7 @@ public class Juego {
 		Visor.mostrarMensaje("Te vas a enfrentar ha: \n"+ enemigo);
 		
 		
+		
 		//Calculos lucha
 		jugadorLV= (int) ((jugador.getFuerza()+jugador.getInteligencia()+jugador.getAgilidad())*4+(jugador.getArma().getAtaque()+jugador.getEscudo().getDefensa())*0.4);
 		enemigoLV= (int) ((enemigo.getFuerza()+enemigo.getInteligencia()+enemigo.getAgilidad())*4+(enemigo.getArma().getAtaque()+enemigo.getEscudo().getDefensa())*0.4);
@@ -72,6 +73,8 @@ public class Juego {
 		Visor.mostrarMensaje("Debido a tu maestria tu poder ha subido: "+ jugadorLVEXP);
 		Visor.mostrarMensaje("Debido a la maestria del enemigo su poder ha subido:"+ enemigoLVEXP);
 		
+		
+		
 		//Opciones de final
 		if (datosVictoria>25) {
 			Visor.mostrarMensaje("El ganador es "+jugador.getNombre());
@@ -86,6 +89,8 @@ public class Juego {
 			jugador.setExperiencia(jugador.getExperiencia()+(int)(Math.random()*(20-1+1))+1);
 			enemigo.setExperiencia(enemigo.getExperiencia()+(int)(Math.random()*(20-1+1))+1);
 		}
+		
+		//Subir a la BBDD
 		caballeros.set(jugador.getId()-1, jugador);
 		caballeros.set(enemigo.getId()-1, enemigo);
 		modeloCaballero.modificarCaballeros(caballeros);
