@@ -23,7 +23,9 @@ public class GestorPrincipal {
 			opcion= Integer.parseInt(scan.nextLine());
 			switch (opcion) {
 			case Menu.LUCHAR:
+				
 				Juego.run();
+				break;
 			case Menu.VER_ARMAS:
 				GestorArma.run();
 				break;

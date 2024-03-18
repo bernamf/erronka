@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2024 a las 11:58:05
+-- Tiempo de generación: 18-03-2024 a las 13:28:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -45,7 +45,9 @@ INSERT INTO `arma` (`ID`, `Nombre`, `Ataque`) VALUES
 (5, 'lanza', 60),
 (6, 'mazas', 180),
 (7, 'cuchillo', 110),
-(8, 'alabardas', 220);
+(8, 'alabardas', 220),
+(10, 'beñat', 23),
+(11, 'hsdgv', 324);
 
 -- --------------------------------------------------------
 
@@ -177,7 +179,7 @@ ALTER TABLE `escudo`
 -- AUTO_INCREMENT de la tabla `arma`
 --
 ALTER TABLE `arma`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `caballero`

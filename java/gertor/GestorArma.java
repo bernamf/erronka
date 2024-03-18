@@ -22,22 +22,22 @@ public class GestorArma  {
             opcion= Integer.parseInt(scan.nextLine());
             switch (opcion) {
             case Menu.Ver_armas:
-            	modeloArma.conectar();
+            	
                 armas = modeloArma.getArmas();
                 Visor.mostrarArmas(armas);
-                modeloArma.cerrar();
+                
                 break;
             case Menu.insertar_arma:
             	Arma arma =solicitarDatosNuevaArma();
-            	modeloArma.conectar();
+            	
             	modeloArma.insertarArma(arma);
-            	modeloArma.cerrar();
+            	
                 break;
             case Menu.eliminar_arma:
-            	modeloArma.conectar();
+            	
             	int id =solicitarIdArmaEliminar();
             	modeloArma.eliminarArma(id);
-            	modeloArma.cerrar();
+            	
                 break;
             
             default:

@@ -13,7 +13,7 @@ package conector;
 		private String usuario = "root";
 		private String contrasenia = "";
 
-		public void conectar() {
+		public Conectar() {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 

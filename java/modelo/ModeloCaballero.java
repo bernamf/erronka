@@ -2,6 +2,7 @@ package modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import clases.Caballero;
@@ -21,6 +22,7 @@ public class ModeloCaballero extends Conectar {
 			while (rs.next()) {
 				Caballero caballero = new Caballero();
 				caballero.setId(rs.getInt("id"));
+				caballero.setNombre(rs.getString("nombre"));
 				caballero.setFuerza(rs.getInt("fuerza"));
 				caballero.setInteligencia(rs.getInt("inteligencia"));
 				caballero.setAgilidad(rs.getInt("agilidad"));
@@ -38,4 +40,24 @@ public class ModeloCaballero extends Conectar {
 
 		return null;
 	}
+	public void modificarCaballeros(ArrayList<Caballero> caballeros) {
+		
+			String query = "UPDATE cabellero SET nombre = ?, fuerza = ? , inteligencia = ?, agilidad=?, experiencia = ?, arma_id=?, escudo_id=? where id = ?";
+	        try (PreparedStatement st = getCn().prepareStatement(query)) {
+	        	for (Caballero caballero : caballeros) {
+	            st.setString(1, caballero.getNombre());
+	            st.setInt(2, caballero.getFuerza());
+	            st.setInt(3, caballero.getInteligencia());
+	            st.setInt(4, caballero.getAgilidad());
+	            st.setInt(5, caballero.getExperiencia());
+	            st.setInt(6, caballero.getArma().getId());
+	            st.setInt(7, caballero.getEscudo().getId());
+	            st.executeUpdate();
+	        	}
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+		
+        
+    }
 }

@@ -25,22 +25,22 @@ public class GestorEscudo extends Conectar {
 			opcion= Integer.parseInt(scan.nextLine());
 			switch (opcion) {
 			case Menu.ver_escudos:
-				modeloEscudo.conectar();
+				
 				escudos = modeloEscudo.getEscudos();
 				Visor.mostrarEscudos(escudos);
-				modeloEscudo.cerrar();
+				
 				break;
 			case Menu.insertar_escudo:
-				modeloEscudo.conectar();
+				
 				Escudo escudo = solicitarDatosNuevoEscudo();
 				modeloEscudo.insertarEscudo(escudo);
-				modeloEscudo.cerrar();
+				
 				break;
 			case Menu.eliminar_escudo:
-				modeloEscudo.conectar();
+				
 				int id = solicitarIdEscudoEliminar();
 				modeloEscudo.eliminarEscudo(id);
-				modeloEscudo.cerrar();
+				
 				break;
 			
 			default:

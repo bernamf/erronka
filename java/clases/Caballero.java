@@ -117,7 +117,7 @@ public class Caballero {
 		public String toString() {
 			return "Caballeroº " + id + ", " + nombre + " Experiencia:" + experiencia + ", fuerza=" + fuerza
 					+ ", inteligencia=" + inteligencia + ", agilidad=" + agilidad + "," + arma + ", "
-					+ escudo + ", escudero=" + escudero.getNombre() + ", caballo=" + caballo.getNombre() ;
+					+ escudo ;
 		}
 		
 	
