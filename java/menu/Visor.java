@@ -29,10 +29,10 @@ public class Visor {
 
 	    public static void mostrarEscudos(ArrayList<Escudo> escudos) {
 	        System.out.println("Listado de Escudos:");
-	        System.out.println("ID | Nombre              | Defensa");
+	        System.out.println("ID | Nombre                   | Defensa");
 	        System.out.println("------------------------------------");
 	        for (Escudo escudo : escudos) {
-	            System.out.printf("%-3d| %-20s| %-8d\n", escudo.getId(), escudo.getNombre(), escudo.getDefensa());
+	            System.out.printf("%-3d| %-25s| %-8d\n", escudo.getId(), escudo.getNombre(), escudo.getDefensa());
 	        }
 	        System.out.println();
 	    }
