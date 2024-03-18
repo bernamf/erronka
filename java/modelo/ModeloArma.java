@@ -55,4 +55,41 @@ public class ModeloArma extends Conectar {
 
 		return null;
 	}
+	
+	
+	 public void insertarArma(Arma arma) {
+	        String query = "INSERT INTO arma (nombre, ataque) VALUES (?, ?)";
+	        
+	        try (PreparedStatement st = getCn().prepareStatement(query)) {
+	            st.setString(1, arma.getNombre());
+	            st.setInt(2, arma.getAtaque());
+	            
+	            int filasAfectadas = st.executeUpdate();
+	            if (filasAfectadas == 1) {
+	                System.out.println("Arma insertada correctamente.");
+	            } else {
+	                System.out.println("Error al insertar el arma.");
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    public void eliminarArma(int id) {
+	        String query = "DELETE FROM arma WHERE id = ?";
+	        
+	        try (PreparedStatement st = getCn().prepareStatement(query)) {
+	            st.setInt(1, id);
+	            
+	            int filasAfectadas = st.executeUpdate();
+	            if (filasAfectadas == 1) {
+	                System.out.println("Arma eliminada correctamente.");
+	            } else {
+	                System.out.println("Error al eliminar el arma.");
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	
 }

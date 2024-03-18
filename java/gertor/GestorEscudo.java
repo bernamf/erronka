@@ -28,11 +28,13 @@ public class GestorEscudo extends Conectar {
 				escudos = modeloEscudo.getEscudos();
 				Visor.mostrarEscudos(escudos);
 				break;
-			case Menu.modificar_escudo:
-				
+			case Menu.insertar_escudo:
+				Escudo escudo = solicitarDatosNuevoEscudo();
+				modeloEscudo.insertarEscudo(escudo);
 				break;
 			case Menu.eliminar_escudo:
-				
+				int id = solicitarIdEscudoEliminar();
+				modeloEscudo.eliminarEscudo(id);
 				break;
 			
 			default:
@@ -42,6 +44,30 @@ public class GestorEscudo extends Conectar {
 		Visor.mostrarMensaje("Adios");
 		
 	}
+	
+	public static Escudo solicitarDatosNuevoEscudo() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Ingrese el nombre del escudo:");
+        String nombre = scanner.nextLine();
+        
+        System.out.println("Ingrese el nivel de defensa del escudo:");
+        int defensa = Integer.parseInt(scanner.nextLine());
+        
+        
+        Escudo nuevoEscudo = new Escudo(nombre, defensa);
+        
+        return nuevoEscudo;
+    }
+
+    public static int solicitarIdEscudoEliminar() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Ingrese el ID del escudo que desea eliminar:");
+        int id = Integer.parseInt(scanner.nextLine());
+        
+        return id;
+    }
 
 	
 }

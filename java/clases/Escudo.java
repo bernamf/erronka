@@ -7,8 +7,8 @@ public class Escudo {
 	private int defensa;
 	
 	
-	public Escudo(int id, String nombre, int defensa) {
-		this.id = id;
+	public Escudo( String nombre, int defensa) {
+		
 		this.nombre = nombre;
 		this.defensa = defensa;
 	}

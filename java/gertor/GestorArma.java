@@ -25,11 +25,13 @@ public class GestorArma  {
                 armas = modeloArma.getArmas();
                 Visor.mostrarArmas(armas);
                 break;
-            case Menu.modificar_arma:
-                
+            case Menu.insertar_arma:
+            	Arma arma =solicitarDatosNuevaArma();
+            	modeloArma.insertarArma(arma);
                 break;
             case Menu.eliminar_arma:
-                
+            	int id =solicitarIdArmaEliminar();
+            	modeloArma.eliminarArma(id);
                 break;
             
             default:
@@ -40,5 +42,27 @@ public class GestorArma  {
         
     }
 
-  
+    public static Arma solicitarDatosNuevaArma() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Ingrese el nombre del arma:");
+        String nombre = scanner.nextLine();
+        
+        System.out.println("Ingrese el nivel de ataque del arma:");
+        int ataque = Integer.parseInt(scanner.nextLine());
+        
+        
+        Arma nuevaArma = new Arma(nombre, ataque);
+        
+        return nuevaArma;
+    }
+    
+    public static int solicitarIdArmaEliminar() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Ingrese el ID del arma que desea eliminar:");
+        int id = Integer.parseInt(scanner.nextLine());
+        
+        return id;
+    }
 }

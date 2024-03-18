@@ -7,8 +7,8 @@ public class Arma {
 	private int ataque;
 	
 	
-	public Arma(int id, String nombre, int ataque) {
-		this.id = id;
+	public Arma( String nombre, int ataque) {
+		
 		this.nombre = nombre;
 		this.ataque = ataque;
 	}
