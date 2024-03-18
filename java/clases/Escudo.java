@@ -43,7 +43,7 @@ public class Escudo {
 
 	@Override
 	public String toString() {
-		return "Escudo [id=" + id + ", nombre=" + nombre + ", defensa=" + defensa + "]";
+		return "Escudo:" + id + "= " + nombre + "," + defensa + " def";
 	}
 	
 	
