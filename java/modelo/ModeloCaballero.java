@@ -42,7 +42,7 @@ public class ModeloCaballero extends Conectar {
 	}
 	public void modificarCaballeros(ArrayList<Caballero> caballeros) {
 		
-			String query = "UPDATE cabellero SET nombre = ?, fuerza = ? , inteligencia = ?, agilidad=?, experiencia = ?, arma_id=?, escudo_id=? where id = ?";
+			String query = "UPDATE caballero SET nombre = ?, fuerza = ? , inteligencia = ?, agilidad=?, experiencia = ?, arma_id=?, escudo_id=? where id = ?";
 	        try (PreparedStatement st = getCn().prepareStatement(query)) {
 	        	for (Caballero caballero : caballeros) {
 	            st.setString(1, caballero.getNombre());
@@ -52,6 +52,7 @@ public class ModeloCaballero extends Conectar {
 	            st.setInt(5, caballero.getExperiencia());
 	            st.setInt(6, caballero.getArma().getId());
 	            st.setInt(7, caballero.getEscudo().getId());
+	            st.setInt(8, caballero.getId());
 	            st.executeUpdate();
 	        	}
 	        } catch (SQLException e) {
