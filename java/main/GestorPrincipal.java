@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import clases.Caballero;
+import gertor.GestorArma;
 import gertor.GestorCaballero;
-import gertor.Modelo;
+import gertor.GestorEscudo;
+
 import menu.Menu;
 import menu.Visor;
 
@@ -23,7 +25,10 @@ public class GestorPrincipal {
 			case Menu.LUCHAR:
 				Juego.run();
 			case Menu.VER_ARMAS:
-				GeestorArma.run();
+				GestorArma.run();
+				break;
+			case Menu.VER_ESCUDOS:
+				GestorEscudo.run();
 				break;
 			case Menu.HISTORIA:
 				

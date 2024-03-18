@@ -8,27 +8,29 @@ import clases.Arma;
 import conector.Conectar;
 
 public class ModeloArma extends Conectar {
-	public ArrayList<Arma> getArmas() {
-		ArrayList<Arma> armas = new ArrayList<Arma>();
-		String query = "SELECT * from arma";
-		
-		try (PreparedStatement st = getCn().prepareStatement(query)) {
-			ResultSet rs = st.executeQuery();
-			
-			while (rs.next()) {
-				Arma arma = new Arma();
-				arma.setId(rs.getInt("id"));
-				arma.setAtaque(rs.getInt("ataque"));
-				arma.setNombre(rs.getString("nombre"));
+    public ArrayList<Arma> getArmas() {
+        ArrayList<Arma> armas = new ArrayList<Arma>();
+        String query = "SELECT * FROM arma";
 
-				armas.add(arma);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        try (PreparedStatement st = getCn().prepareStatement(query)) {
+            ResultSet rs = st.executeQuery();
 
-		return armas;
-	}
+            while (rs.next()) {
+                Arma arma = new Arma();
+                arma.setId(rs.getInt("id"));
+                arma.setAtaque(rs.getInt("ataque"));
+                arma.setNombre(rs.getString("nombre"));
+
+                armas.add(arma);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return armas;
+    }
+
+
 
 	public Arma getArmaById(int id) {
 		String query = "SELECT * from arma WHERE id = ?";

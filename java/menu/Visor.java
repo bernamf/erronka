@@ -22,5 +22,11 @@ public class Visor {
 			System.out.println(arma.toString());
 		}
 	}
+	
+	public static void mostrarEscudos(ArrayList<Escudo> escudos) {
+		for (Escudo escudo : escudos) {
+			System.out.println(escudo.toString());
+		}
+	}
 
 }
