@@ -4,10 +4,11 @@ public class Menu {
 	
 	public static final int LUCHAR = 1;
 	public static final int VER_ARMAS = 2;
-	public static final int HISTORIA = 6;
+	public static final int HISTORIA = 7;
 	public static final int VER_ESCUDOS = 3;
 	public static final int VER_ESCUDEROS = 4;
 	public static final int VER_CABALLOS = 5;
+	public static final int TIENDA = 6;
 	
 	public static final int Ver_armas = 1;
 	public static final int insertar_arma = 2;
@@ -25,6 +26,10 @@ public class Menu {
 	public static final int insertar_caballo = 2;
 	public static final int eliminar_caballo = 3;
 	
+	public static final int COMPRAR_ARMA = 1;
+	public static final int COMPRAR_ESCUDO = 2;
+	
+	
 	public static final int SALIR =0;
 	
 	public static void menuPrincipal() {
@@ -34,6 +39,7 @@ public class Menu {
 		System.out.println(VER_ESCUDOS + ". Gestionar apartado de escudos");
 		System.out.println(VER_ESCUDEROS+ ". Gestionar apartado de escuderos");
 		System.out.println(VER_CABALLOS + ". Gestionar apartado de caballos");
+		System.out.println(TIENDA + ". Entrar a la tienda");
 		System.out.println(HISTORIA + ". Leer la historia");
 		System.out.println(SALIR + ". Salir");
 		System.out.println("Elije una de las opciones");
@@ -76,6 +82,14 @@ public class Menu {
 		System.out.println(SALIR + ". Salir");
 		System.out.println("Elije una de las opciones");
 	}
+	
+	 public static void menuTienda() {
+	        System.out.println("Bienvenido a la tienda:");
+	        System.out.println(COMPRAR_ARMA +". Comprar armas");
+	        System.out.println(COMPRAR_ESCUDO +". Comprar escudos");
+	        System.out.println(SALIR + ". Salir");
+	        System.out.print("Ingrese su opción: ");
+	    }
 	
 	
 }

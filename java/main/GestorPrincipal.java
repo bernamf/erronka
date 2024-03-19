@@ -9,7 +9,7 @@ import gertor.GestorCaballero;
 import gertor.GestorCaballo;
 import gertor.GestorEscudero;
 import gertor.GestorEscudo;
-
+import gertor.GestorTienda;
 import menu.Menu;
 import menu.Visor;
 
@@ -25,7 +25,6 @@ public class GestorPrincipal {
 			opcion= Integer.parseInt(scan.nextLine());
 			switch (opcion) {
 			case Menu.LUCHAR:
-				
 				Juego.run();
 				break;
 			case Menu.VER_ARMAS:
@@ -39,6 +38,9 @@ public class GestorPrincipal {
 				break;
 			case Menu.VER_CABALLOS:
 				GestorCaballo.run();
+				break;
+			case Menu.TIENDA:
+				GestorTienda.run();
 				break;
 			case Menu.HISTORIA:
 				
