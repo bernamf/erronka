@@ -15,6 +15,9 @@ public class Caballero {
 	private Escudero escudero;
 	private Caballo caballo;
 	
+	
+	private int caballeroLV;
+	private int	caballeroLVEXP;
 		public Caballero() {
 		
 	}
@@ -118,6 +121,15 @@ public class Caballero {
 			return "Caballeroº " + id + ", " + nombre + " Experiencia:" + experiencia + ", fuerza=" + fuerza
 					+ ", inteligencia=" + inteligencia + ", agilidad=" + agilidad + "," + arma + ", "
 					+ escudo ;
+		}
+		public int getCaballeroLV(){
+			this.caballeroLV= (int) ((this.getFuerza()+this.getInteligencia()+this.getAgilidad())*4+(this.getArma().getAtaque()+this.getEscudo().getDefensa())*0.4);
+			return caballeroLV;
+		}
+		
+		public int getCaballeroLVEXP(){
+			this.caballeroLVEXP=(int) (this.caballeroLV*(1+((Math.floor(Math.random()*(this.getExperiencia()-1+1)+1)))*0.02));
+			return caballeroLVEXP;
 		}
 		
 	

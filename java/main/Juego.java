@@ -31,14 +31,13 @@ public class Juego {
 		//Datos jugador
 		Caballero jugador;
 		int opcionJugador;
-		int jugadorLV;
-		int jugadorLVEXP;
 		
 		//Datos enemigo
 		Caballero enemigo;
-		int enemigoLV;
+		
+		//Datos Pelea
 		int datosVictoria;
-		int enemigoLVEXP;
+		
 		
 		//Jugador
 		Visor.mostrarCaballeros(caballeros);
@@ -58,20 +57,18 @@ public class Juego {
 		
 		
 		//Calculos lucha
-		jugadorLV= (int) ((jugador.getFuerza()+jugador.getInteligencia()+jugador.getAgilidad())*4+(jugador.getArma().getAtaque()+jugador.getEscudo().getDefensa())*0.4);
-		enemigoLV= (int) ((enemigo.getFuerza()+enemigo.getInteligencia()+enemigo.getAgilidad())*4+(enemigo.getArma().getAtaque()+enemigo.getEscudo().getDefensa())*0.4);
 		
-		Visor.mostrarMensaje("El poder de "+jugador.getNombre()+" es de: "+ jugadorLV);
-		Visor.mostrarMensaje("El poder de "+enemigo.getNombre() +"tu enemigo es de:"+ enemigoLV);
+		Visor.mostrarMensaje("El poder de "+jugador.getNombre()+" es de: "+ jugador.getCaballeroLV());
+		Visor.mostrarMensaje("El poder de "+enemigo.getNombre() +"tu enemigo es de:"+ enemigo.getCaballeroLV());
 		
 		Visor.mostrarMensaje("------------------------------------------------------------------------------------------------");
 		
-		jugadorLVEXP=(int) (jugadorLV*(1+((Math.floor(Math.random()*(jugador.getExperiencia()-1+1)+1)))*0.02));
-		enemigoLVEXP=(int) (enemigoLV*(1+((Math.floor(Math.random()*(enemigo.getExperiencia()-1+1)+1)))*0.02));
-		datosVictoria = jugadorLVEXP - enemigoLVEXP;
 		
-		Visor.mostrarMensaje("Debido a tu maestria tu poder ha subido: "+ jugadorLVEXP);
-		Visor.mostrarMensaje("Debido a la maestria del enemigo su poder ha subido:"+ enemigoLVEXP);
+		
+		datosVictoria = jugador.getCaballeroLVEXP() - enemigo.getCaballeroLVEXP();
+		
+		Visor.mostrarMensaje("Debido a tu maestria tu poder ha subido: "+ jugador.getCaballeroLVEXP());
+		Visor.mostrarMensaje("Debido a la maestria del enemigo su poder ha subido:"+ enemigo.getCaballeroLVEXP());
 		
 		
 		
