@@ -7,14 +7,16 @@ public class Caballo {
 	private String nombre;
 	private int velocidadMaxima;
 	private int resistencia;
+	private int idCaballero;
 	
 	
 	
-	public Caballo(int id, String nombre, int velocidadMaxima, int resistencia) {
-		this.id = id;
+	public Caballo( String nombre, int velocidadMaxima, int resistencia, int idCaballero) {
+		
 		this.nombre = nombre;
 		this.velocidadMaxima = velocidadMaxima;
 		this.resistencia = resistencia;
+		this.idCaballero= idCaballero;
 		
 	}
 	
@@ -55,12 +57,22 @@ public class Caballo {
 	}
 
 	
+	
+
+	public int getIdCaballero() {
+		return idCaballero;
+	}
+
+	public void setIdCaballero(int idCaballero) {
+		this.idCaballero = idCaballero;
+	}
 
 	@Override
 	public String toString() {
 		return "Caballo [id=" + id + ", nombre=" + nombre + ", velocidadMaxima=" + velocidadMaxima + ", resistencia="
-				+ resistencia + "]";
+				+ resistencia + ", idCaballero=" + idCaballero + "]";
 	}
+
 	
 	
 	

@@ -54,6 +54,28 @@ public class ModeloCaballo extends Conectar{
 		return null;
 	}
 
-	
+	public boolean insertarCaballo(Caballo caballo) {
+	    String query = "INSERT INTO Caballo (Nombre, VelocidadMaxima, Resistencia, idCaballero) VALUES (?, ?, ?, ?)";
+	    try (PreparedStatement statement = getCn().prepareStatement(query)) {
+	        statement.setString(1, caballo.getNombre());
+	        statement.setInt(2, caballo.getVelocidadMaxima());
+	        statement.setInt(3, caballo.getResistencia());
+	        statement.setInt(4, caballo.getIdCaballero());
+	        return statement.executeUpdate() > 0;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+	    public boolean eliminarCaballo(int id) {
+	        String query = "DELETE FROM Caballo WHERE ID = ?";
+	        try (PreparedStatement statement = getCn().prepareStatement(query)) {
+	            statement.setInt(1, id);
+	            return statement.executeUpdate() > 0;
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	    }
 	
 }

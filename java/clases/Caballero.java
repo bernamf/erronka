@@ -102,8 +102,10 @@ public class Caballero {
 			this.caballo = caballo;
 		}
 
-		public Caballero( String nombre, int experiencia, int fuerza, int inteligencia, int agilidad, Arma arma,
+		public Caballero(int id, String nombre, int experiencia, int fuerza, int inteligencia, int agilidad, Arma arma,
 				Escudo escudo) {
+			super();
+			this.id = id;
 			this.nombre = nombre;
 			this.experiencia = experiencia;
 			this.fuerza = fuerza;

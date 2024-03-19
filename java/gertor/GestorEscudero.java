@@ -23,7 +23,6 @@ public static void run() {
 			case Menu.ver_escuderos:
 				
 				
-				
 				break;
 			case Menu.insertar_escudero:
 				
