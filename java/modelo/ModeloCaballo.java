@@ -7,7 +7,7 @@ import clases.Caballo;
 import conector.Conectar;
 
 public class ModeloCaballo extends Conectar{
-	public Caballo getEscuderoById(int id) {
+	public Caballo getCaballoById(int id) {
 		String query = "SELECT * from caballo WHERE id = ?";
 		
 		try (PreparedStatement st = getCn().prepareStatement(query)) {
@@ -30,7 +30,7 @@ public class ModeloCaballo extends Conectar{
 
 		return null;
 	}
-	public Caballo getEscuderoByIdCaba(int id) {
+	public Caballo getCaballoByIdCaba(int id) {
 		String query = "SELECT * from caballo WHERE idCaballero = ?";
 		
 		try (PreparedStatement st = getCn().prepareStatement(query)) {

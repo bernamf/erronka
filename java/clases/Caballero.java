@@ -123,7 +123,19 @@ public class Caballero {
 					+ escudo ;
 		}
 		public int getCaballeroLV(){
-			this.caballeroLV= (int) ((this.getFuerza()+this.getInteligencia()+this.getAgilidad())*4+(this.getArma().getAtaque()+this.getEscudo().getDefensa())*0.4);
+			int armaATK;
+			int escudoDEF;
+			this.caballeroLV= (this.getFuerza()+this.getInteligencia()+this.getAgilidad())*4;
+			if (escudero != null  ) {
+				escudoDEF=(int) (this.getEscudo().getDefensa()*(1+this.escudero.getExperiencia()*0.015));
+			}else {
+				escudoDEF= this.getEscudo().getDefensa();
+			} if (caballo != null) {
+				armaATK=(int) (this.getArma().getAtaque()*(1+this.caballo.getVelocidadMaxima()*0.015));
+			}else {
+				armaATK=this.getArma().getAtaque();
+			}
+			this.caballeroLV+=(escudoDEF+armaATK)*0.4; 
 			return caballeroLV;
 		}
 		
