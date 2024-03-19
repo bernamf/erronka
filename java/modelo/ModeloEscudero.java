@@ -2,6 +2,7 @@ package modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import clases.Caballo;
@@ -77,4 +78,28 @@ public class ModeloEscudero extends Conectar{
 
 		return escuderos;
 	}
+	
+	 public boolean insertarEscudero(Escudero escudero) {
+	        String query = "INSERT INTO Escudero (nombre, experiencia, idCaballero) VALUES (?, ?, ?)";
+	        try (PreparedStatement statement = getCn().prepareStatement(query)) {
+	            statement.setString(1, escudero.getNombre());
+	            statement.setInt(2, escudero.getExperiencia());
+	            statement.setInt(3, escudero.getIdCaballero());
+	            return statement.executeUpdate() > 0;
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	    }
+
+	    public boolean eliminarEscudero(int id) {
+	        String query = "DELETE FROM Escudero WHERE id = ?";
+	        try (PreparedStatement statement = getCn().prepareStatement(query)) {
+	            statement.setInt(1, id);
+	            return statement.executeUpdate() > 0;
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	    }
 }

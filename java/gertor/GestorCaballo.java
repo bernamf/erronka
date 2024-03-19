@@ -19,17 +19,17 @@ public static void run() {
 		ModeloCaballo modeloCaballo = new ModeloCaballo();
 		ArrayList<Caballo> caballo = new ArrayList<Caballo>();
 		do {
-			Menu.menuEscudo();
+			Menu.menuCaballo();
 			opcion= Integer.parseInt(scan.nextLine());
 			switch (opcion) {
 			case Menu.ver_caballos:
-				caballo = modeloCaballo.getCaballo();
-				Visor.mostrarEscudos(escudos);
+				caballo = modeloCaballo.getCaballos();
+				Visor.mostrarCaballos(caballo);
 	
 				break;
 			case Menu.insertar_caballo:
-				Caballo caballo=pedirDatosInsert();
-				modeloCaballo.insertarCaballo(caballo);
+				Caballo caballos=pedirDatosInsert();
+				modeloCaballo.insertarCaballo(caballos);
 				break;
 			case Menu.eliminar_caballo:
 				int id = pedirDatosDelete();

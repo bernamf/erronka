@@ -37,4 +37,23 @@ public class Visor {
 	        System.out.println();
 	    }
 
+	    public static void mostrarCaballos(ArrayList<Caballo> caballos) {
+	        System.out.println("Listado de Caballos:");
+	        System.out.println("ID | Nombre                 | Velocidad Máxima | Resistencia");
+	        System.out.println("--------------------------------------------");
+	        for (Caballo caballo : caballos) {
+	            System.out.printf("%-3d| %-20s| %-17d| %-11d\n", caballo.getId(), caballo.getNombre(), caballo.getVelocidadMaxima(), caballo.getResistencia());
+	        }
+	        System.out.println();
+	    }
+	    
+	    public static void mostrarEscuderos(ArrayList<Escudero> escuderos) {
+	        System.out.println("Listado de Escuderos:");
+	        System.out.println("ID | Nombre                 | Experiencia");
+	        System.out.println("----------------------------------------");
+	        for (Escudero escudero : escuderos) {
+	            System.out.printf("%-3d| %-20s| %-11d\n", escudero.getId(), escudero.getNombre(), escudero.getExperiencia());
+	        }
+	        System.out.println();
+	    }
 }

@@ -5,13 +5,15 @@ public class Escudero {
 	private int id;
 	private String nombre;
 	private int Experiencia;
+	private int idCaballero;
 	
 	
 	
-	public Escudero(int id, String nombre, int experiencia) {
-		this.id = id;
+	public Escudero( String nombre, int experiencia, int idCaballero) {
+		
 		this.nombre = nombre;
-		Experiencia = experiencia;
+		this.Experiencia = experiencia;
+		this.idCaballero=idCaballero;
 		
 	}
 	
@@ -42,12 +44,25 @@ public class Escudero {
 	public void setExperiencia(int experiencia) {
 		Experiencia = experiencia;
 	}
+	
 
+
+	public int getIdCaballero() {
+		return idCaballero;
+	}
+
+	public void setIdCaballero(int idCaballero) {
+		this.idCaballero = idCaballero;
+	}
 
 	@Override
 	public String toString() {
-		return "Escudero [id=" + id + ", nombre=" + nombre + ", Experiencia=" + Experiencia +  "]";
+		return "Escudero [id=" + id + ", nombre=" + nombre + ", Experiencia=" + Experiencia + ", idCaballero="
+				+ idCaballero + "]";
 	}
+
+	
+	
 	
 	
 
