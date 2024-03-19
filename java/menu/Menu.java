@@ -15,6 +15,14 @@ public class Menu {
 	public static final int insertar_escudo = 2;
 	public static final int eliminar_escudo = 3;
 	
+	public static final int ver_escuderos = 1;
+	public static final int insertar_escudero = 2;
+	public static final int eliminar_escudero = 3;
+	
+	public static final int ver_caballos = 1;
+	public static final int insertar_caballo = 2;
+	public static final int eliminar_caballo = 3;
+	
 	public static final int SALIR =0;
 	
 	public static void menuPrincipal() {
@@ -47,6 +55,23 @@ public class Menu {
 		System.out.println("Elije una de las opciones");
 	}
 	
+	public static void menuEscudero() {
+		System.out.println("------MENU-------");
+		System.out.println(ver_escudos + ". Ver escudero");
+		System.out.println(insertar_escudo + ". Insertar un escudero");
+		System.out.println(eliminar_escudo + ". Eliminar un escudero");
+		System.out.println(SALIR + ". Salir");
+		System.out.println("Elije una de las opciones");
+	}
+	
+	public static void menuCaballo() {
+		System.out.println("------MENU-------");
+		System.out.println(ver_escudos + ". Ver caballos");
+		System.out.println(insertar_escudo + ". Insertar un caballo");
+		System.out.println(eliminar_escudo + ". Eliminar un caballo");
+		System.out.println(SALIR + ". Salir");
+		System.out.println("Elije una de las opciones");
+	}
 	
 	
 }
