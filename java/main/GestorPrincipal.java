@@ -6,6 +6,8 @@ import java.util.Scanner;
 import clases.Caballero;
 import gertor.GestorArma;
 import gertor.GestorCaballero;
+import gertor.GestorCaballo;
+import gertor.GestorEscudero;
 import gertor.GestorEscudo;
 
 import menu.Menu;
@@ -31,6 +33,12 @@ public class GestorPrincipal {
 				break;
 			case Menu.VER_ESCUDOS:
 				GestorEscudo.run();
+				break;
+			case Menu.VER_ESCUDEROS:
+				GestorEscudero.run();
+				break;
+			case Menu.VER_CABALLOS:
+				GestorCaballo.run();
 				break;
 			case Menu.HISTORIA:
 				

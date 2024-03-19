@@ -4,8 +4,10 @@ public class Menu {
 	
 	public static final int LUCHAR = 1;
 	public static final int VER_ARMAS = 2;
-	public static final int HISTORIA = 4;
+	public static final int HISTORIA = 6;
 	public static final int VER_ESCUDOS = 3;
+	public static final int VER_ESCUDEROS = 4;
+	public static final int VER_CABALLOS = 5;
 	
 	public static final int Ver_armas = 1;
 	public static final int insertar_arma = 2;
