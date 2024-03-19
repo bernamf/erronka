@@ -64,12 +64,7 @@ public class ModeloArma extends Conectar {
 	            st.setString(1, arma.getNombre());
 	            st.setInt(2, arma.getAtaque());
 	            
-	            int filasAfectadas = st.executeUpdate();
-	            if (filasAfectadas == 1) {
-	                System.out.println("Arma insertada correctamente.");
-	            } else {
-	                System.out.println("Error al insertar el arma.");
-	            }
+	           
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
@@ -81,12 +76,7 @@ public class ModeloArma extends Conectar {
 	        try (PreparedStatement st = getCn().prepareStatement(query)) {
 	            st.setInt(1, id);
 	            
-	            int filasAfectadas = st.executeUpdate();
-	            if (filasAfectadas == 1) {
-	                System.out.println("Arma eliminada correctamente.");
-	            } else {
-	                System.out.println("Error al eliminar el arma.");
-	            }
+	            
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }

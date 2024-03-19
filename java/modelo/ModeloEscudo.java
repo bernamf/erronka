@@ -61,12 +61,7 @@ public class ModeloEscudo extends Conectar {
             st.setString(1, escudo.getNombre());
             st.setInt(2, escudo.getDefensa());
             
-            int filasAfectadas = st.executeUpdate();
-            if (filasAfectadas == 1) {
-                System.out.println("Escudo insertado correctamente.");
-            } else {
-                System.out.println("Error al insertar el escudo.");
-            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,12 +73,7 @@ public class ModeloEscudo extends Conectar {
         try (PreparedStatement st = getCn().prepareStatement(query)) {
             st.setInt(1, id);
             
-            int filasAfectadas = st.executeUpdate();
-            if (filasAfectadas == 1) {
-                System.out.println("Escudo eliminado correctamente.");
-            } else {
-                System.out.println("Error al eliminar el escudo.");
-            }
+           
         } catch (Exception e) {
             e.printStackTrace();
         }

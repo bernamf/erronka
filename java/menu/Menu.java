@@ -32,6 +32,8 @@ public class Menu {
 		System.out.println(LUCHAR + ". Entra en el campo de batalla");
 		System.out.println(VER_ARMAS + ". Gestionar apartado de armas");
 		System.out.println(VER_ESCUDOS + ". Gestionar apartado de escudos");
+		System.out.println(VER_ESCUDEROS+ ". Gestionar apartado de escuderos");
+		System.out.println(VER_CABALLOS + ". Gestionar apartado de caballos");
 		System.out.println(HISTORIA + ". Leer la historia");
 		System.out.println(SALIR + ". Salir");
 		System.out.println("Elije una de las opciones");
