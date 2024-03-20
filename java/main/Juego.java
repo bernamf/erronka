@@ -21,10 +21,16 @@ public class Juego {
 	
 		caballeros= modeloCaballero.getCaballeros();
 		
+		Visor.mostrarMensaje("Bienvenido que desea hacer \n Opcionº1: Luchar combate aleatorio \n Opcionº2: Entrar en el Torneo");
+		int opcionstart = Integer.parseInt(scan.nextLine());
+		if (opcionstart==1) {
+			luchar(scan, caballeros, modeloCaballero);
+		}else if (opcionstart==2) {
+			
+		}else {
+			Visor.mostrarMensaje("Opcion Incorrecta, Redirigiendo");
+		}
 		
-	
-		
-		luchar(scan, caballeros, modeloCaballero);
 	
 	}
 
