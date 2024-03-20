@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import clases.*;
+import gertor.GestorEscudero;
 import menu.Visor;
 
 public class Juego {
@@ -47,6 +48,8 @@ public class Juego {
 		
 		Visor.mostrarMensaje("Has escogido ha: \n"+ jugador);
 		
+		jugador.setEscudero(posibilidadEscudero(jugador));
+		
 		
 		//Enemigo
 		int valorEntero = (int) (Math.floor(Math.random()*((caballeros.size()-1)-0+1)+0));
@@ -54,6 +57,7 @@ public class Juego {
 		
 		Visor.mostrarMensaje("Te vas a enfrentar ha: \n"+ enemigo);
 		
+		enemigo.setEscudero(posibilidadEscudero(enemigo));
 		
 		
 		//Calculos lucha
@@ -91,6 +95,21 @@ public class Juego {
 		caballeros.set(jugador.getId()-1, jugador);
 		caballeros.set(enemigo.getId()-1, enemigo);
 		modeloCaballero.modificarCaballeros(caballeros);
+	}
+
+	private static Escudero posibilidadEscudero(Caballero caballero) {
+		
+		if (caballero.getEscudero()==null) {
+			
+			if ((int)(Math.random()*(5-1+1))==5) {
+				Visor.mostrarMensaje("------Un civil salta de las gradas y se propone a ser escudero de "+caballero.getNombre()+"--------");
+				Escudero escudero = new GestorEscudero().insertarEscuderoPorCaballero(caballero.getId());
+				new ModeloEscudero().insertarEscudero(escudero);
+				
+			}
+		}
+		return null;
+		
 	}
 	
 }

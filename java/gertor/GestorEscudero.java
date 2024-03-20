@@ -46,7 +46,7 @@ public static void run() {
 	}
 
 
-private static Escudero insertarEscudero() {
+public static Escudero insertarEscudero() {
 	Scanner scan = new Scanner(System.in);
     Visor.mostrarMensaje("Insertar nuevo escudero");
     Visor.mostrarMensaje("Ingrese el nombre del escudero:");
@@ -59,6 +59,18 @@ private static Escudero insertarEscudero() {
 
     // Crear un objeto Escudero con los datos proporcionados por el usuario
     Escudero nuevoEscudero = new Escudero(nombre, experiencia, idCaballero);
+    return nuevoEscudero;
+}
+
+public static Escudero insertarEscuderoPorCaballero(int idCaballero) {
+	Scanner scan = new Scanner(System.in);
+    Visor.mostrarMensaje("Insertar nuevo escudero");
+    Visor.mostrarMensaje("Ingrese el nombre del escudero:");
+    String nombre = scan.nextLine();
+    
+
+    // Crear un objeto Escudero con los datos proporcionados por el usuario
+    Escudero nuevoEscudero = new Escudero(nombre, 1, idCaballero);
     return nuevoEscudero;
 }
 
