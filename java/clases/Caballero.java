@@ -102,10 +102,8 @@ public class Caballero {
 			this.caballo = caballo;
 		}
 
-		public Caballero(int id, String nombre, int experiencia, int fuerza, int inteligencia, int agilidad, Arma arma,
+		public Caballero( String nombre, int experiencia, int fuerza, int inteligencia, int agilidad, Arma arma,
 				Escudo escudo) {
-			super();
-			this.id = id;
 			this.nombre = nombre;
 			this.experiencia = experiencia;
 			this.fuerza = fuerza;
@@ -118,10 +116,13 @@ public class Caballero {
 
 		@Override
 		public String toString() {
-			return "Caballeroº " + id + ", " + nombre + " Experiencia:" + experiencia + ", fuerza=" + fuerza
-					+ ", inteligencia=" + inteligencia + ", agilidad=" + agilidad + "," + arma + ", "
-					+ escudo ;
+		    return "Caballero " + id + ": " + nombre + " - Experiencia: " + experiencia + ", Fuerza: " + fuerza
+		            + ", Inteligencia: " + inteligencia + ", Agilidad: " + agilidad + ", Arma: " + arma.getNombre()
+		            + " (Ataque: " + arma.getAtaque() + "), Escudo: " + escudo.getNombre() + " (Defensa: " + escudo.getDefensa() + ")";
 		}
+
+		
+		
 		public int getCaballeroLV(){
 			int armaATK;
 			int escudoDEF;

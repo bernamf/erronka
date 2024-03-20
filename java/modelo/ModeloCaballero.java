@@ -61,4 +61,22 @@ public class ModeloCaballero extends Conectar {
 		
         
     }
+	
+	public boolean insertarCaballero(Caballero caballero) {
+	    String query = "INSERT INTO caballero (nombre, fuerza, inteligencia, agilidad, experiencia, arma_id, escudo_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	    try (PreparedStatement st = getCn().prepareStatement(query)) {
+	        st.setString(1, caballero.getNombre());
+	        st.setInt(2, caballero.getFuerza());
+	        st.setInt(3, caballero.getInteligencia());
+	        st.setInt(4, caballero.getAgilidad());
+	        st.setInt(5, caballero.getExperiencia());
+	        st.setInt(6, caballero.getArma().getId());
+	        st.setInt(7, caballero.getEscudo().getId());
+	        return st.executeUpdate() > 0;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+
 }
