@@ -9,6 +9,7 @@ import gertor.GestorCaballero;
 import gertor.GestorCaballo;
 import gertor.GestorEscudero;
 import gertor.GestorEscudo;
+import gertor.GestorHistoria;
 import gertor.GestorTienda;
 import menu.Menu;
 import menu.Visor;
@@ -43,7 +44,7 @@ public class GestorPrincipal {
 				GestorTienda.run();
 				break;
 			case Menu.HISTORIA:
-				
+				GestorHistoria.run();
 				break;
 			
 			default:

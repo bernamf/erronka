@@ -29,6 +29,8 @@ public class Menu {
 	public static final int COMPRAR_ARMA = 1;
 	public static final int COMPRAR_ESCUDO = 2;
 	
+	public static final int VER_HISTORIA = 1;
+	
 	
 	public static final int SALIR =0;
 	
@@ -91,5 +93,13 @@ public class Menu {
 	        System.out.print("Ingrese su opción: ");
 	    }
 	
-	
+
+
+	    public static void menuHistorias() {
+	        System.out.println("---- Menú de Historias ----");
+	        System.out.println("1. Ver Historia de un Caballero");
+	        System.out.println("2. Salir");
+	        System.out.println("---------------------------");
+	        System.out.print("Elige una opción: ");
+	    }
 }
