@@ -49,6 +49,8 @@ public class GestorTienda {
                     System.out.println("Opción no válida. Intente de nuevo.");
                     break;
             }
+            caballeros.set(tienCaballero.getId()-1, tienCaballero);
+            modeloCaballero.modificarCaballeros(caballeros);
         } while (opcion != 0);
     }
 
