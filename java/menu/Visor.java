@@ -26,13 +26,22 @@ public class Visor {
 	        }
 	        System.out.println();
 	    }
+	 public static void mostrarArmasTienda(ArrayList<Arma> armas) {
+	        System.out.println("Listado de Armas para Comprar:");
+	        System.out.println("ID | Nombre              | Ataque | Precio");
+	        System.out.println("------------------------------------------");
+	        for (Arma arma : armas) {
+	            System.out.printf("%-3d| %-20s| %-6d | %-6d EXP\n", arma.getId(), arma.getNombre(), arma.getAtaque(),(int)(arma.getAtaque()*0.4));
+	        }
+	        System.out.println();
+	    }
 
 	    public static void mostrarEscudos(ArrayList<Escudo> escudos) {
 	        System.out.println("Listado de Escudos:");
-	        System.out.println("ID | Nombre                   | Defensa");
-	        System.out.println("------------------------------------");
+	        System.out.println("ID | Nombre                   | Defensa| Precio");
+	        System.out.println("-----------------------------------------------");
 	        for (Escudo escudo : escudos) {
-	            System.out.printf("%-3d| %-25s| %-8d\n", escudo.getId(), escudo.getNombre(), escudo.getDefensa());
+	            System.out.printf("%-3d| %-25s| %-8d| %-6d EXP\n", escudo.getId(), escudo.getNombre(), escudo.getDefensa(),(int) (escudo.getDefensa()*0.4));
 	        }
 	        System.out.println();
 	    }
