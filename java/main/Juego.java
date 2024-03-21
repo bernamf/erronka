@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import clases.*;
+import gertor.GestorArma;
 import gertor.GestorEscudero;
 import menu.Visor;
 
@@ -173,13 +174,10 @@ public class Juego {
 		// Jugador
 		jugador = seleccionarJugador(scan, caballeros);
 
-		
 		// Enemigo
 		enemigo = generarEnemigo(caballeros);
 
 		Visor.mostrarMensaje("Te vas a enfrentar ha: \n" + enemigo);
-
-		
 
 		peleaDeCaballeros(caballeros, modeloCaballero, jugador, enemigo);
 	}
@@ -208,10 +206,10 @@ public class Juego {
 			Caballero jugador, Caballero enemigo) {
 		int datosVictoria;
 		int ganador;
-		//Escudero aparece
-		jugador=(posibilidadEscudero(jugador));
-		enemigo=(posibilidadEscudero(enemigo));
-		
+		// Escudero aparece
+		jugador = (posibilidadEscudero(jugador));
+		enemigo = (posibilidadEscudero(enemigo));
+
 		// Calculos lucha
 
 		Visor.mostrarMensaje("El poder de " + jugador.getNombre() + " es de: " + jugador.getCaballeroLV());
@@ -235,32 +233,10 @@ public class Juego {
 		}
 
 		// Opciones de final
-		if (datosVictoria > 25) {
-			Visor.mostrarMensaje("El ganador es " + jugador.getNombre());
-			jugador.setExperiencia(jugador.getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
-			enemigo.setExperiencia(enemigo.getExperiencia() + (int) (Math.random() * (15 - 5 + 1)) + 5);
-			jugador.getEscudero().setExperiencia(jugador.getEscudero().getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
-			enemigo.getEscudero().setExperiencia(enemigo.getEscudero().getExperiencia() + (int) (Math.random() * (10 - 3 + 1)) + 3);
-			
-			ganador = 1;
-		} else if (datosVictoria < (-25)) {
-			Visor.mostrarMensaje("El ganador es " + enemigo.getNombre());
-			enemigo.setExperiencia(enemigo.getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
-			jugador.setExperiencia(jugador.getExperiencia() + (int) (Math.random() * (15 - 5 + 1)) + 5);
-			jugador.getEscudero().setExperiencia(jugador.getEscudero().getExperiencia() + (int) (Math.random() * (10 - 3 + 1)) + 3);
-			enemigo.getEscudero().setExperiencia(enemigo.getEscudero().getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
-			ganador = 2;
-		} else {
-			Visor.mostrarMensaje("El combate resulta en empate");
-			jugador.setExperiencia(jugador.getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
-			enemigo.setExperiencia(enemigo.getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
-			jugador.getEscudero().setExperiencia(jugador.getEscudero().getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
-			enemigo.getEscudero().setExperiencia(enemigo.getEscudero().getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
-			ganador = 0;
-		}
-		if (jugador.getEscudero().getExperiencia()>=50) {
-			Caballero caballero = new Caballero();
-		}
+		ganador = saberGanador(jugador, enemigo, datosVictoria);
+		
+		escuderoAscenso(modeloCaballero, jugador);
+		escuderoAscenso(modeloCaballero, enemigo);
 
 		try {
 			Thread.sleep(3000);
@@ -275,14 +251,83 @@ public class Juego {
 		return ganador;
 	}
 
-	private static Caballero posibilidadEscudero(Caballero caballero) {
+	private static int saberGanador(Caballero jugador, Caballero enemigo, int datosVictoria) {
+		int ganador;
+		if (datosVictoria > 25) {
+			Visor.mostrarMensaje("El ganador es " + jugador.getNombre());
+			jugador.setExperiencia(jugador.getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
+			enemigo.setExperiencia(enemigo.getExperiencia() + (int) (Math.random() * (15 - 5 + 1)) + 5);
+			try {
+				
+			
+			jugador.getEscudero()
+					.setExperiencia(jugador.getEscudero().getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
+			enemigo.getEscudero()
+					.setExperiencia(enemigo.getEscudero().getExperiencia() + (int) (Math.random() * (10 - 3 + 1)) + 3);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 
+			ganador = 1;
+		} else if (datosVictoria < (-25)) {
+			Visor.mostrarMensaje("El ganador es " + enemigo.getNombre());
+			enemigo.setExperiencia(enemigo.getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
+			jugador.setExperiencia(jugador.getExperiencia() + (int) (Math.random() * (15 - 5 + 1)) + 5);
+			try {
+			jugador.getEscudero()
+					.setExperiencia(jugador.getEscudero().getExperiencia() + (int) (Math.random() * (10 - 3 + 1)) + 3);
+			enemigo.getEscudero()
+					.setExperiencia(enemigo.getEscudero().getExperiencia() + (int) (Math.random() * (4 - 1 + 1)) + 1);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			ganador = 2;
+		} else {
+			Visor.mostrarMensaje("El combate resulta en empate");
+			jugador.setExperiencia(jugador.getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
+			enemigo.setExperiencia(enemigo.getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
+			try {
+			jugador.getEscudero()
+					.setExperiencia(jugador.getEscudero().getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
+			enemigo.getEscudero()
+					.setExperiencia(enemigo.getEscudero().getExperiencia() + (int) (Math.random() * (20 - 1 + 1)) + 1);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			ganador = 0;
+		}
+		return ganador;
+	}
+
+	private static void escuderoAscenso(ModeloCaballero modeloCaballero, Caballero caballeroP) {
+		if (caballeroP.getEscudero() != null) {
+			
+		
+		if (caballeroP.getEscudero().getExperiencia() >= 50) {
+			Visor.mostrarMensaje("La diosa desciende al campo de batalla tras el combate y vendice a "+caballeroP.getEscudero().getNombre()+" ascendiendolo a caballero");
+			Caballero caballero = new Caballero();
+			caballero.setNombre(caballeroP.getEscudero().getNombre());
+			caballero.setFuerza((int) (Math.random() * (10 - 1 + 1)) + 1);
+			caballero.setAgilidad((int) (Math.random() * (10 - 1 + 1)) + 1);
+			caballero.setInteligencia((int) (Math.random() * (10 - 1 + 1)) + 1);
+			caballero.setExperiencia(1);
+			caballero.setArma(new ModeloArma().getArmaById((int) (Math.random() * (8 - 1 + 1)) + 1));
+			caballero.setEscudo(new ModeloEscudo().getEscudoById((int) (Math.random() * (8 - 1 + 1)) + 1));
+			modeloCaballero.insertarCaballero(caballero);
+			new ModeloEscudero().eliminarEscudero(caballeroP.getEscudero().getId());
+			caballeroP.setEscudero(null);
+		}
+		}
+	}
+
+	private static Caballero posibilidadEscudero(Caballero caballero) {
+		
 		if (caballero.getEscudero() == null) {
 
 			if ((int) (Math.random() * (5 - 1 + 1) + 1) == 5) {
 				Visor.mostrarMensaje("------Un civil salta de las gradas y se propone a ser escudero de "
 						+ caballero.getNombre() + "--------");
-				Escudero escudero = new GestorEscudero().insertarEscuderoPorCaballero(caballero.getId());
+				Escudero escudero = GestorEscudero.insertarEscuderoPorCaballero(caballero.getId());
 				new ModeloEscudero().insertarEscudero(escudero);
 				caballero.setEscudero(escudero);
 			}
